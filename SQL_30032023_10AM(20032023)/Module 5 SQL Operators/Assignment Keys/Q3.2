@@ -1,0 +1,9 @@
+-- Find count of the number of customers in the north region with ages between 20 and 30
+
+select distinct(count(customer_name)) from( customer full outer join sales
+on 
+customer.customerid=sales.customer_id
+full outer join product
+on
+product.product_id=sales.product_id) as name_count where age between 20 and 30;
+

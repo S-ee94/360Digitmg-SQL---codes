@@ -1,0 +1,32 @@
+select * from customer;
+select * from product;
+select * from sales;
+
+alter table customer
+add primary key (customerid);
+
+alter table sales
+add foreign key(customer_id) references customer(customerid)
+
+select * from customer full outer join sales
+on customer.customerid=sales.customer_id;
+
+alter table product
+add primary key(product_id)
+
+alter table sales
+add foreign key(product_id) references product(product_id)
+
+select * from product full outer join sales
+on
+product.product_id=sales.product_id
+
+select * from customer full outer join sales
+on customer.customerid=sales.customer_id
+full outer join product
+on product.product_id=sales.product_id
+
+
+
+
+

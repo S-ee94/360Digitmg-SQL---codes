@@ -1,0 +1,12 @@
+--Find the minimum and maximum aged customers from Philadelphia  max(age),customer_name
+
+select customer_name,age from( customer full outer join sales
+on 
+customer.customerid=sales.customer_id
+full outer join product
+on
+product.product_id=sales.product_id) as cncustomer_name where city in('Philadelphia')
+
+
+
+

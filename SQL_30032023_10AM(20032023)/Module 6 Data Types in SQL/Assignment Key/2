@@ -1,0 +1,21 @@
+-- Find maximum length of characters in the Product name string from Product table
+select * from product;
+
+select max(length(product_name)) from product;
+
+--Retrieve product name, sub-category and category from Product table 
+--and an additional column named “product_details” which contains a 
+--concatenated string of product name, sub-category and category.
+
+select concat(product_name,sub_category,category) as con_lisst from product;
+
+-- Analyze the product_id column and take out the three parts 
+-- composing the product_id in three different columns.
+
+select *,SPLIT_Part(product_id,'-',1),split_part(product_id,'-',2),split_part(product_id,'-',3)
+from product
+
+-- List down comma separated product name where sub-category is either Chairs or tables.
+
+select product_name,sub_category from product where sub_category in('Chairs','Tables')
+

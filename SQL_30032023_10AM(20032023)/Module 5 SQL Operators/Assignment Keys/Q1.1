@@ -1,0 +1,16 @@
+create table customer(CustomerID varchar,Customer_Name varchar,Segment varchar,
+					  Age integer,Country varchar,City varchar,State varchar,
+					  Postal_Code integer,Region varchar)
+select * from customer;
+
+create table product(Product_ID varchar,Category varchar,Sub_Category varchar,Product_Name varchar);
+select * from product;
+
+create table sales(Order_Line integer,Order_ID varchar,Order_Date varchar,Ship_Date varchar,
+				   Ship_Mode varchar,Customer_ID varchar,Product_ID varchar,
+				   Sales decimal,Quantity integer,Discount decimal,Profit decimal)
+select * from sales;
+
+select * from customer;
+select * from product;
+select * from sales;

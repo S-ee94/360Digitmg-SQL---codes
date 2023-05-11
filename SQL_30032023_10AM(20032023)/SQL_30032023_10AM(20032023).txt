@@ -1,0 +1,69 @@
+SQL Notes - >
+
+https://www.youtube.com/playlist?list=PLNLDEHOJTZSifptl-Ka7iHaVJZZuwzend - youtube videos Bhargavi Depuru  
+
+
+SQL - https://www.youtube.com/playlist?list=PLNLDEHOJTZSj-6iEWCLXiLfspBIsol2v0  - different videos 
+
+Root Password SQL - - Seemscrazy1994# , Port 3306
+
+
+cmd prompt - mysql --version
+           - mysql -u root -p
+
+
+SQL is a domain specific language and journal specific languages
+SQL is procedural - > what to do and how to do 
+
+Schema - a proper structure with their datatypes arranged in rows/columns/dataframe with a proper definition(int,float,bool)
+
+DDL - create,drop,alter,truncate
+
+drop - table or database 
+truncate -> helps to delete the rows and clearing the data but the attributes remain the same 
+
+primary key - a single or a combination of the field which help us to identify the table or the record uniquely, it will restricted to cannot be null and can contain duplicate and one 
+primary key.
+
+primary and unique key no duplicates allowed 
+primary key cannot have null values and unique key can have null values.
+
+error code - 1062 - duplicate name error 
+
+
+Root Password Postgre SQL - Pwd - Seems1994#crazy, server pwd,   port - 5432 default
+
+postgredql 15 pwd - Seemscrazy1994#
+
+C:\ProgramData\Microsoft\Windows\Start Menu\Programs\PostgreSQL 15 - back up is in E drive
+
+solution--------------- for fatal error 
+
+
+In the end the solution that work for me was:
+
+Delete C:\Users\Seema\AppData\Roaming\pgadmin
+Open the terminal and run C:\Program Files\PostgreSQL\15\pgAdmin 4\web\__pycache__\config.cpython-310.pyc file using python
+Terminal view -> python execution
+
+Run as administrator the "pgAdmin 4" app from the windows menu and it will work as expected
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

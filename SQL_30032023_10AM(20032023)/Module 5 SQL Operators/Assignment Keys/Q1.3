@@ -1,0 +1,64 @@
+--In the database Supermart _DB, find the following:
+
+select * from customer;
+select * from product;
+select * from sales;
+
+alter table customer
+add primary key (customerid);
+
+alter table sales
+add foreign key(customer_id) references customer(customerid)
+
+select * from customer full outer join sales
+on customer.customerid=sales.customer_id;
+
+alter table product
+add primary key(product_id)
+
+alter table sales
+add foreign key(product_id) references product(product_id)
+
+select * from product full outer join sales
+on
+product.product_id=sales.product_id
+
+select * from customer full outer join sales
+on customer.customerid=sales.customer_id
+full outer join product
+on product.product_id=sales.product_id
+-- Get the list of all the cities where the region is north or east
+-- without any duplicates using IN statement.
+
+select distinct(city),region from(select * from customer full outer join sales
+on customer.customerid=sales.customer_id
+full outer join product
+on product.product_id=sales.product_id) as region where region in('North','East');
+
+--Get the list of all orders where the ‘sales’ value is 
+-- between 100 and 500 using the BETWEEN operator.
+
+select * from customer full outer join sales
+on customer.customerid=sales.customer_id
+full outer join product
+on product.product_id=sales.product_id
+
+select * from (select * from customer full outer join sales
+on customer.customerid=sales.customer_id
+full outer join product
+on product.product_id=sales.product_id)as list where sales between 100 and 500
+
+
+--Get the list of customers whose last name contains only 4 characters using LIKE
+
+select customer_name from (select * from customer full outer join sales
+on customer.customerid=sales.customer_id
+full outer join product
+on product.product_id=sales.product_id)
+split_part(customer_name,'') as fname,
+split_part(customer_name,'',2) as lname;
+
+
+
+
+

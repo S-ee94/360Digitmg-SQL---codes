@@ -1,0 +1,17 @@
+-- Limit the number of results in the above query to the top 10.
+
+select * from customer full outer join sales
+on customer.customerid=sales.customer_id
+full outer join product
+on product.product_id=sales.customer_id
+
+select discount from(select * from customer full outer join sales
+on customer.customerid=sales.customer_id
+full outer join product
+on product.product_id=sales.customer_id) as discount where discount>0
+order by discount desc
+fetch first 10 rows only;
+
+
+
+

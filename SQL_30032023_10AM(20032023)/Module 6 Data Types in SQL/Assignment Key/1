@@ -1,0 +1,35 @@
+-- Get data with all columns of the sales table, and customer name, customer age,
+-- product name, and category are in the same result set. 
+-- (use join in the subquery, refer to the datafiles from Assignments-05)
+select sales.*, customer.customer_name, customer.age,
+			product.product_name, product.category from (customer full outer join sales
+			  on
+			  customer.customerid=sales.customer_id
+			  full outer join product
+			  on
+			  product.product_id=sales.product_id);
+			  
+-- Get data sales table, product name, and category in the result set.
+
+select sales.*, product.product_name, product.category from (customer full outer join sales
+			  on
+			  customer.customerid=sales.customer_id
+			  full outer join product
+			  on
+			  product.product_id=sales.product_id);
+			  
+-- Without using the join concept create a sub-query 
+-- by using the customer, product, sales data.
+
+select * from sales where quantity=20;
+
+update sales
+(set quantity=20 where order_line=1)
+
+update sales
+set quantity=20 where order_line in(select order_line from sales where customer_id='DV-13045')
+
+update sales
+set ship_mode='B-300' where product_id in(select ship_mode from sales where product_id='FUR-BO-10001798');
+
+

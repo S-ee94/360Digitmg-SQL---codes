@@ -1,0 +1,17 @@
+-- Find out the current age of “batman” who was born on “April 6,1939” in Years, months and days
+
+create table batman(sno integer, name varchar, DOB date)
+
+insert into batman(
+values(1,'batman','1939/04/06'))
+
+select * from batman;
+
+select age(now(),dob) from batman
+
+-- Analyze and find out the monthly sales of sub-category
+-- chair. Do you Observe any seasonality in sales of this sub-category.
+
+select product_name,order_date,sales from (product full outer join sales
+on 
+product.product_id=sales.product_id) where sub_category in ('Chairs')

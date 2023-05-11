@@ -1,0 +1,10 @@
+-- Find the average age of east region customers avg(age)
+
+select avg(age) from( customer full outer join sales
+on 
+customer.customerid=sales.customer_id
+full outer join product
+on
+product.product_id=sales.product_id) as avg_age where region in('East');
+
+

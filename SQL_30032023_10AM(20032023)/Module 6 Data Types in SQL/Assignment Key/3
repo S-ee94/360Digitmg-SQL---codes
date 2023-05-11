@@ -1,0 +1,22 @@
+-- You are running a lottery for your customers. 
+-- So, pick a list of 5 lucky customers from customer table using random function.
+
+select * from customer
+
+select customer_name from customer where customer_name like ('Cy%')
+
+-- Suppose you cannot charge the customer in fraction points.
+-- So, for sales value of 1.63, you will get either 1 (or) 2. In such a scenario, find out.
+
+--1.  Total sales revenue if you are charging the lower integer value of sales always.
+
+select sum(floor(sales)) as down_round from sales;
+
+--2. Total sales revenue if you are charging the higher integer value is sales always.
+select sum(ceiling(sales)) as up_round from sales;
+
+--3. Total sales revenue if you are rounding-off the sales always.
+select sum(Round(sales,0)) as round from sales;
+
+
+

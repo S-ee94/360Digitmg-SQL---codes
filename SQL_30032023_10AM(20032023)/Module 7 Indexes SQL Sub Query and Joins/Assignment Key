@@ -1,0 +1,73 @@
+create table sales01(Order_Line integer,Order_ID varchar,Order_Date date,Ship_Date date,Ship_Mode varchar,
+					 Customer_ID varchar,Product_ID varchar,Sales decimal,Quantity integer, Discount decimal,Profit decimal)
+					 
+select * from sales01;
+
+select * from sales01 where ship_date between '2015-01-01' and '2015-12-31' ;
+
+/*	Create table sales_2015 
+as select * from sales where ship_date between '2015-01-01' and '2015-12-31'*/
+drop table sales_2015;
+
+create table sales_2015 (Order_Line integer,Order_ID varchar,Order_Date date,Ship_Date date,Ship_Mode varchar,
+					 Customer_ID varchar ,Product_ID varchar,Sales decimal,Quantity integer, Discount decimal,Profit decimal)
+
+insert into sales_2015(select * from sales01 where ship_date between '2015-01-01' and '2015-12-31' );
+
+select * from sales_2015;
+/* •	select count(*) from sales_2015; */
+
+select count(*) from sales_2015;
+
+/* •	select count(distinct customer_id) from sales_2015; */
+select distinct(customer_id) from sales_2015;
+
+/* Customers with ages between 20 and 60 */
+
+/*•	create table customer_20_60 as select * from customer where age between 20 and 60;*/
+
+create table customer_20and60(CustomerID varchar,Customer_Name varchar,Segment varchar,Age integer,Country varchar,City varchar,State varchar,PostalCode integer,Region varchar,
+Order_Line integer,Order_ID varchar,Order_Date date,Ship_Date date,Ship_Mode varchar,
+					 Customer_ID varchar,Product_ID varchar,Sales decimal,Quantity integer, Discount decimal,Profit decimal)
+
+select * from customer_20and60;
+drop table customer_2;
+
+insert into customer_20and60(select * from( customer full outer join sales_2015
+on
+customer.customerid=sales_2015.customer_id) where age between 20 and 60);
+
+select * from customer_20and60;
+
+/* •	select count (*) from customer_20_60;*/
+
+Select count(*) from customer_20and60;
+
+-- /*2.	Find the total sales done in every state for customer_20_60 and sales_2015 table */
+
+select customer.state,sales from (customer full outer join sales_2015
+on
+customer.customerid=sales_2015.customer_id)
+
+
+select state,sales from customer_20and60;
+
+/*3.	Get data containing Product_id, Product name, category, 
+total sales value of that product, and total quantity sold. 
+(Use sales and product tables) */
+
+select * from sales
+select * from product
+
+select product.product_id,product.product_name,product.category,sales.sales from product full outer join sales 
+on
+product.product_id=sales.product_id
+
+
+
+
+
+
+
+
+

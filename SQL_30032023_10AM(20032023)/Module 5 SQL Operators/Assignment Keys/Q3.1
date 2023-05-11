@@ -1,0 +1,7 @@
+select sum(sales) from customer full outer join sales
+on
+customer.customerid=sales.customer_id
+full outer join product
+on
+product.product_id=sales.customer_id
+

@@ -1,0 +1,58 @@
+--1.	Make a dashboard showing the following figures for each product ID
+
+select * from( customer full outer join sales
+on 
+customer.customerid=sales.customer_id
+full outer join product
+on
+product.product_id=sales.product_id)
+-- Total sales (in $) order by this column in descending 
+
+select sales from( customer full outer join sales
+on 
+customer.customerid=sales.customer_id
+full outer join product
+on
+product.product_id=sales.product_id) as sales 
+order by sales desc;
+
+-- Total sales quantity
+
+select sum(quantity) from( customer full outer join sales
+on 
+customer.customerid=sales.customer_id
+full outer join product
+on
+product.product_id=sales.product_id) as quantity;
+
+-- The number of orders
+select count(order_id) from( customer full outer join sales
+on 
+customer.customerid=sales.customer_id
+full outer join product
+on
+product.product_id=sales.product_id) as order_count;
+
+-- Max Sales value
+select max(sales) from( customer full outer join sales
+on 
+customer.customerid=sales.customer_id
+full outer join product
+on
+product.product_id=sales.product_id) as max_sales;
+
+-- Min Sales value
+select min(sales) from( customer full outer join sales
+on 
+customer.customerid=sales.customer_id
+full outer join product
+on
+product.product_id=sales.product_id) as min_sales;
+
+-- Average sales value
+select avg(sales) from( customer full outer join sales
+on 
+customer.customerid=sales.customer_id
+full outer join product
+on
+product.product_id=sales.product_id) as avg_sales;

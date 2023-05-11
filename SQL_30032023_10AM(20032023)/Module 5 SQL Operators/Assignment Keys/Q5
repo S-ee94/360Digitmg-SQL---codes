@@ -1,0 +1,14 @@
+-- Order by & limit:-
+-- 1.	Retrieve all orders where ‘discount’ value is greater than Zero 
+-- ordered in descending order basis ‘discount’ Value.
+
+select * from sales
+where discount>0
+order by discount desc;
+
+-- 2.	Limit the number of results in above query to top 10.
+select * from sales
+where discount>0
+order by discount desc
+fetch first 100 rows only;
+
